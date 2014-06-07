@@ -27,7 +27,7 @@ using namespace std;
 int arr[100000];
 bool DEBUG = false;
 
-unsigned int mergecount(int a, int b) {
+unsigned int mergeCount(int a, int b) {
     if(a == b){
     // In case its just a single element there will be no inversions
         return 0;
@@ -38,9 +38,9 @@ unsigned int mergecount(int a, int b) {
     unsigned int invs2 = 0;
     // the number of inversions of the left side, and of the right side
     // then the number of crossing inversions will be calculated later.
-    invs1 = mergecount(a, half);
+    invs1 = mergeCount(a, half);
     // From first index value until floor(mid point)
-    invs2 = mergecount(half + 1, b);
+    invs2 = mergeCount(half + 1, b);
     // From ceiling(mid point) to last index value
     int lena = (half - a) + 1;
     // Length of the left part
@@ -110,7 +110,7 @@ int main() {
             arr[i++] = n;
         }
     }
-    unsigned int invs = mergecount(0, i - 1);
+    unsigned int invs = mergeCount(0, i - 1);
     // The number can be really big, and will never be negative, so its better
     // to use an unsigned integer, to have more storage space for it!
     cout << "Inversions: " << invs << endl;
