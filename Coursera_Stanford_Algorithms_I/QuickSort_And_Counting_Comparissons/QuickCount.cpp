@@ -155,7 +155,4 @@ int main() {
     // The number can be really big, and will never be negative, so its better
     // to use an unsigned integer, to have more storage space for it!
     cout << "Comparissons: " << comps << endl;
-    for(int i = 0; i < 1000; i++){
-        //cout << arr[i] << endl;
-    }
 }
