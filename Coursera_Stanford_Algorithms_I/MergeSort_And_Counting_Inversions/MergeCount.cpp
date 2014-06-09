@@ -96,6 +96,12 @@ void debugNumbers() {
 }
 
 int main() {
+    // This is a mergeSort which will incidentally count the amount of inv-
+    // ersions done inside it, which can help us to identify how much a given
+    // array of numbers strays away from a usually sorted array, or how much
+    // two different array of numbers (or ranked values) stray from each other,
+    // usually by making one of the arrays be what the sorted array should be
+    // looking like (by mapping the values to new 'sorted' values and back).
     int i;
     if(DEBUG) {
         debugNumbers();
