@@ -28,25 +28,26 @@ int main() {
     int N;
     // Number of wall heights to read
     cin >> T;
-    for(int k = 1; k <= T; k++) {
+    int numCase = 1;
+    while(T--) {
         cin >> N;
         int walls[N];
         int high = 0, low = 0;
         // Amount of high/low jumps between all walls.
-        for(int i = 0; i < N; i++) {
-            cin >> walls[i];
-            if(i > 0){
-                if(walls[i] > walls[i - 1]) {
+        for(int k = 0; k < N; k++) {
+            cin >> walls[k];
+            if(k > 0){
+                if(walls[k] > walls[k - 1]) {
                 // If the current wall is taller than the previous one
                     high++;
                 }
-                if(walls[i] < walls[i - 1]) {
+                if(walls[k] < walls[k - 1]) {
                 // If the current wall is lower than the previous one
                     low++;
                 }
                 // It seems that walls of equal height do not matter
             }
         }
-        cout << "Case " << k << ": " << high << " " << low << endl;
+        cout << "Case " << numCase++ << ": " << high << " " << low << endl;
     }
 }

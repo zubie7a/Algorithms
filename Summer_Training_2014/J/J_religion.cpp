@@ -52,8 +52,8 @@ int main() {
             graph[k].push_back(k);
         }
         int religions = 0;
-        for(int i = 1; i <= N; i++) {
-        // At each i (each person), the list of relations that person has is
+        for(int k = 1; k <= N; k++) {
+        // At each k (each person), the list of relations that person has is
         // also the list of persons belonging to its same religion. So, all the
         // persons found in this list will be 'cleared', since we don't have
         // to re-check for this same religion. A person that hasn't been cle-
@@ -62,14 +62,14 @@ int main() {
         // list would be 0, which would coincide with an already cleared person
         // and we want this person whom we don't know anything about to count 
         // as its own possible religion, for finding the upper bounding limit. 
-            if(graph[i].size() > 0) {
+            if(graph[k].size() > 0) {
                 religions++;
             }
             else {
                 continue;
             }
             queue<int> q;
-            q.push(i);
+            q.push(k);
             // We'll clear the lists of the persons related to the current per-
             // son, and also the lists of the persons related to those persons,
             // and so on, until all people from a same religion is cleared so
@@ -84,7 +84,6 @@ int main() {
                 graph[p1].clear();
             } 
         }
-        cout << "Case " << numCase << ": " << religions << endl;
-        numCase++;
+        cout << "Case " << numCase++ << ": " << religions << endl;
     }
 }

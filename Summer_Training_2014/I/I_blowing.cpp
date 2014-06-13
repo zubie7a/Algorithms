@@ -27,7 +27,7 @@ int main() {
     // N: number of devices, <= 20
     // M: operations performed on these devices
     // C: capacity of the fuse, in amperes
-    int caseNum = 1;
+    int numCase = 1;
     while(cin >> N >> M >> C) {
         if(!N && !M && !C) {
         // Input is terminated with a case of 0 0 0
@@ -65,7 +65,7 @@ int main() {
             // Keep track of what the final max consumption is by comparing it
             // against the total consumption at each point in time.
         }
-        cout << "Sequence " << caseNum << endl;
+        cout << "Sequence " << numCase++ << endl;
         if(maxConsumption > C) {
         // If the max consumption exceed the fuse capacity, then it will have
         // blown at some given point, either the max capacity or some other
@@ -82,6 +82,5 @@ int main() {
                  << maxConsumption << " amperes." << endl << endl;
                  // an extra blank line at end of case, stupid PRESENTATION ERROR.
         }
-        caseNum++;
     }
 }

@@ -51,7 +51,7 @@ int main() {
         sum = 0;
         total = 0;
         index = 0;
-        for(int i = 0; i < T; i++) {
+        for(int k = 0; k < T; k++) {
             cin >> N;
             Num num;
             num.n = N;
