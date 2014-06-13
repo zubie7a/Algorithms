@@ -60,7 +60,7 @@ int main() {
         // The total price to pay the knights involved in dragon slaying
         while(headsIter < N && knightIter < M) {
         // A cycle while the amount of heads or knights have not been exhausted
-            if(headsDiameters[headsIter] <= knightsHeights[knightIter]){
+            if(headsDiameters[headsIter] <= knightsHeights[knightIter]) {
             // If the current knight can deal with the current head
                 totalPrice += knightsHeights[knightIter];
                 // Add the height of the current knight to the total payout

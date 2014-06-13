@@ -127,12 +127,12 @@ void initMoves() {
     }
 }
 
-int main(){
+int main() {
     int N;
     char cur;
     initMoves();
-    while(cin >> N){
-        if(N == 0){
+    while(cin >> N) {
+        if(N == 0) {
             cout << 1 << endl;
             continue;
         }
