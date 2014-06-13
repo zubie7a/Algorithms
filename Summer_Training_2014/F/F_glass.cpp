@@ -52,6 +52,9 @@ using namespace std;
 // at the boundary where it came from.
 
 int reflect(char from, char to, int moves) {
+// The recursive definition of glass reflections, which is VERY SLOW and fucks
+// up for really large numbers, but helps to identify the fibonacciesque nature
+// of this problem.
     if(to == 'C') {
     // The next possible reflection after reflecting at C will happen either at
     // B or A and a possible move/reflection has been consumed
@@ -105,7 +108,7 @@ string sum(string a, string b) {
         res %= 10;
         num = (char)(res + '0') + num;
     }
-    if(carry){
+    if(carry) {
     // If there's a final carry put an extra 1 to the left of the resulting num
         num = "1" + num;
     }
@@ -118,7 +121,9 @@ void initMoves() {
     moves[0] = "1";
     moves[1] = "2";
     for(int k = 2; k < 1001; k++) {
-        moves[k] = sum(moves[k - 1], moves[k - 2]);
+        string n1 = moves[k - 1];
+        string n2 = moves[k - 2];
+        moves[k] = sum(n1, n2);
     }
 }
 
@@ -136,7 +141,7 @@ int main(){
         // This would give the result but its WAY TOO SLOW. What I've just 
         // realized is that this could be given in terms of the subproblem of
         // n - 1 reflections, which at the end boils down to the base cases
-        // and this is a behaviour much like in fibonacci sequence, so...
+        // and this is a behaviour much like in the fibonacci sequence, so...
         cout << moves[N] << endl;
     }
 }
