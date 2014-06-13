@@ -24,13 +24,13 @@
 using namespace std;
 
 struct Num {
-  int n;
-  bool operator < (const Num &that) const {
-  // Overload < operator because this structure will be used in a priority
-  // queue, and in such a structure, it will always maintain the 'biggest'
-  // element on top of it, and we want the 'smallest' element instead.
-    return n > that.n; 
-  }
+    int n;
+    bool operator < (const Num &that) const {
+    // Overload < operator because this structure will be used in a priority
+    // queue, and in such a structure, it will always maintain the 'biggest'
+    // element on top of it, and we want the 'smallest' element instead.
+        return n > that.n; 
+    }
 };
 
 int main() {
