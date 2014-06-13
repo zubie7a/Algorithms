@@ -26,7 +26,7 @@ bool compareCards(string c1, string c2) {
     return (c1[1] == c2[1] || c1[0] == c2[0]);
 }
 
-int main(){
+int main() {
     string s;
     while(true) {
         cin >> s;

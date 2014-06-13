@@ -25,9 +25,8 @@ using namespace std;
 int main(){
     int D, M, S;
     // D: lower bound for defenders
-    // M: lower bound midfields
-    // S: lower bound strikers
-    int range;
+    // M: lower bound for midfields
+    // S: lower bound for strikers
     while(cin >> D >> M >> S) {
     // Read until EOF
         int count = 0;
