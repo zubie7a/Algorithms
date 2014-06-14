@@ -23,6 +23,7 @@
 using namespace std;
 
 map<char, double> table;
+// A cheap 'Periodic Table'! :-)
 
 void initMap() {
 // Mapping between chemical symbols and their molar weights
