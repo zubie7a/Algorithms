@@ -37,7 +37,7 @@ bool isNumeric(char c) {
     return '0' <= c  && c <= '9';
 }
 
-int main(){
+int main() {
     int T;
     // Number of Test Cases
     string s;
