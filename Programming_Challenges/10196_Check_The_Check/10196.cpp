@@ -324,7 +324,7 @@ bool checkIfAttacksKing(int y, int x, char piece, string type) {
     return attacksKing;
 }
 
-bool checkForCheck() {
+int checkForCheck() {
 // This will check whether there is one King (and which) in check or if there's
 // no King in check. According to the Laws of Chess no two Kings can be both in
 // check altogether.
@@ -354,16 +354,18 @@ bool checkForCheck() {
             bool res = checkIfAttacksKing(i, j, piece, type);
             if(res) {
                 if(type == "white") {
-                    printf("Game #%d: black king is in check.\n", ++caseNumber);
+                // If a King was in check and the attacker was white, -1
+                    return -1;
                 }
                 if(type == "black") {
-                    printf("Game #%d: white king is in check.\n", ++caseNumber);
+                // If a King was in check and the attacker was black,  1
+                    return 1;
                 }
-                return true;
             }
         }
     }
-    return false;
+    return 0;
+    // If no King was in check, then the returned value is 0
 }
 
 int main() {
@@ -384,9 +386,18 @@ int main() {
         // Read until finding an empty board
             break;
         }
-        bool res = checkForCheck();
-        if(!res) {
-            printf("Game #%d: no king is in check.\n", ++caseNumber);
+        int res = checkForCheck();
+        if(res == -1) {
+        // If a King was in check and the attacker was white, -1
+            printf("Game #%d: black king is in check.\n", ++caseNumber);
+        }
+        if(res ==  0) {
+        // If no King was in check, then the returned value is 0
+            printf("Game #%d: no king is in check.\n",    ++caseNumber);
+        }
+        if(res ==  1) {
+        // If a King was in check and the attacker was black,  1
+            printf("Game #%d: white king is in check.\n", ++caseNumber);
         }
     }
 }
