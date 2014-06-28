@@ -68,10 +68,10 @@ bool pawnAttacksKing(int y, int x, string type) {
 //    . . . . .  Also the possible moves are limited depending on piece color.
 //
     int possibleMoves[4][2] = {
-        // FOR BLACK PIECE ONLY
+        // FOR BLACK PAWNS ONLY
         { 1,  1}, // Lower right diagonal
         { 1, -1}, // Lower left diagonal 
-        // FOR WHITE PIECE ONLY
+        // FOR WHITE PAWNS ONLY
         {-1, -1}, // Upper left diagonal
         {-1,  1}  // Upper right diagonal
     };
