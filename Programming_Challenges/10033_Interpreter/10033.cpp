@@ -142,9 +142,9 @@ int main() {
             case 0: {
             // Go to the address in target register B unless the origin regis-
             // ter C contains an address pointing to 0.
-            	if(REG[C] != 0) {
-            		index = REG[B];
-            	}
+                if(REG[C] != 0) {
+                    index = REG[B];
+                }
                 break;
             }
             default: {
