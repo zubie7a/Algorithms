@@ -35,8 +35,8 @@ int main() {
 // 5ds - r[d] = r[s] ... set reg_d to reg_s
 // 6ds - r[d] += r[s] ... add reg_s to reg_d
 // 7ds - r[d] *= r[s] ... multiply reg_d by reg_s
-// 8da - r[d] = ram[r[s]] ... set reg_d to the val of RAM's address is reg_a
-// 9sa - ram[r[a]] = r[s] ... set the val of RAM's address is reg_a to reg_d
+// 8da - r[d] = ram[r[a]] ... set reg_d to the val of RAM's address in reg_a
+// 9sa - ram[r[a]] = r[s] ... set the val of RAM's address in reg_a to reg_s
 // 0ds - iter = r[d] ... go to the location in reg_d unless reg_s contains 0
 // ... Otherwise the instruction iterator changes incrementally.
 //
@@ -80,7 +80,8 @@ int main() {
         }
         int index = 0;
         int operationCount = 0;
-        while(true) {
+        bool finish = false;
+        while(!finish) {
         // Execute operations stored in RAM until we reach a halt operation
         // Instruction/RAM Word: ABC
         // A: desired operation
@@ -91,7 +92,6 @@ int main() {
             int B = (RAM[index] /  10) % 10;
             int C = (RAM[index] /   1) % 10;
             index++;
-            bool finish = false;
             switch(A) {
             case 1: {
                 finish = true;
@@ -140,19 +140,16 @@ int main() {
                 break;
             }
             case 0: {
+            // Go to the address in target register B unless the origin regis-
+            // ter C contains an address pointing to 0.
+            	if(REG[C] != 0) {
+            		index = REG[B];
+            	}
                 break;
             }
             default: {
                 break;
             }
-            }
-            if(A == 0 && REG[C] != 0) {
-            // Go to the address in target register B unless the origin regis-
-            // ter C contains an address pointing to 0.
-                index = REG[B];
-            }
-            if(finish) {
-                break;
             }
         }
         cout << operationCount << endl;
