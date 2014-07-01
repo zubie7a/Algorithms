@@ -138,14 +138,14 @@ int main() {
                 maxVotes = max(maxVotes, candidate.votes);
             }
             // If the max amount of votes exceeds the half of total votes, exit
-           	// the loop, also its only possible for this to happen for a single
-           	// Candidate, no 2 candidates can have > 50% votes.
+            // the loop, also its only possible for this to happen for a single
+            // Candidate, no 2 candidates can have > 50% votes.
             if(maxVotes > ballotAmount / 2) {
                 break;
             }
             // The other condition for exiting the loop is that the minimum am-
-           	// ount of votes is also the max amount of votes, this means that
-           	// all the remainding running Candidates were drawn into a tie.
+            // ount of votes is also the max amount of votes, this means that
+            // all the remainding running Candidates were drawn into a tie.
             if(minVotes == maxVotes) {
                 break;
             }
