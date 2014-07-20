@@ -22,7 +22,6 @@
 
 using namespace std;
 
-
 struct Problem {
 // Each problem has the amount of submissions, the time of the last submission
 // and the accepted status. When its accepted, the time of the last submission
@@ -42,7 +41,12 @@ struct Contestant {
 };
 
 Contestant contestants[101];
+// Array of all 100 possible contestants. Mind that not all may show up, and
+// not all assigned numbers to teams will be sequential.
 vector<Contestant> finalRanking;
+// List containing the contestants that will make it to the scoreboard, I mean,
+// they ARE in the contest (proven by having submitted anything even if its not
+// accepted or its a clarification/erroreous/unjudged submission)
 
 void initContestants() {
     for(int k = 0; k < 101; k++) {
