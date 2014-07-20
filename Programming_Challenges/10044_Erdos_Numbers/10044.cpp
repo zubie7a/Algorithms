@@ -41,7 +41,12 @@ set<string> authorsSet;
 // and give them an index for easy identification and graph traversal. Be care-
 // ful that maybe the program may be queried for an author that isn't in any
 // paper, therefore it doesn't have an index to search in the graph, so first
+vector< vector<string> > allPapers;
+// A list of the lists of authors contained in each paper, this is like
+// a graph in string form, which will be converted into a graph in num-
+// erical form for easy and fast traversal.
 // check in this set, and if it isn't here, skip doing the graph search.
+
 
 string substring(string s, int l, int r) {
 // substring of a string s, from index l (inclusive) to index r (exclusive)
@@ -95,10 +100,26 @@ void resetVisited() {
 void initGraph() {
 // Lets initialize the graph of authors with empty positions for every author
 // available, and a visited list also as false, for easy graph traversal later.
+// Then, from the list of papers (and the respective authors) add bidirectional
+// relationships in the graph regarding co-autorships.
     for(int k = 0; k < authorsSet.size(); k++) {
         set<int> coauthors;
         authors.push_back(coauthors);
         visited.push_back(false);
+    }
+    for(int i = 0; i < allPapers.size(); i++) {
+    // After this, the graph using only indices will be completed
+        vector<string> paperAuthors = allPapers[i];
+        for(int j = 0; j < paperAuthors.size() - 1; j++) {
+            string name1 = paperAuthors[j];
+            int index1 = nameToIndex[name1];
+            for(int k = j + 1; k < paperAuthors.size(); k++) {
+                string name2 = paperAuthors[k];
+                int index2 = nameToIndex[name2];
+                authors[index1].insert(index2);
+                authors[index2].insert(index1);
+            }
+        }
     }
 }
 
@@ -176,18 +197,17 @@ int main() {
     int s;
     // The number of scenarios
     int p, n;
-    // p: the number of papers
+    // p: the number of papers to be read
     // n: the number of authors to query for their Erdos Number
     cin >> s;
     for(int z = 0; z < s; z++) {
         authors.clear();
         visited.clear();
+        allPapers.clear();
         authorsSet.clear();
+        // clear all the used datastructures since these are global and need to
+        // be changed for every test case of the program.
         cin >> p >> n;
-        vector< vector<string> > allPapers;
-        // A list of the lists of authors contained in each paper, this is like
-        // a graph in string form, which will be converted into a graph in num-
-        // erical form for easy and fast traversal.
         getchar();
         for(int k = 0; k < p; k++) {
             // Each read line will be a paper, first with the authors then the
@@ -216,20 +236,6 @@ int main() {
             index++;
         }
         initGraph();
-         for(int i = 0; i < allPapers.size(); i++) {
-         // After this, the graph using only indices will be completed
-            vector<string> paperAuthors = allPapers[i];
-            for(int j = 0; j < paperAuthors.size() - 1; j++) {
-                string name1 = paperAuthors[j];
-                int index1 = nameToIndex[name1];
-                for(int k = j + 1; k < paperAuthors.size(); k++) {
-                    string name2 = paperAuthors[k];
-                    int index2 = nameToIndex[name2];
-                    authors[index1].insert(index2);
-                    authors[index2].insert(index1);
-                }
-            }
-        }
         // Now, proceed to read a list of authors to inquire for their Erdos
         // Distance, and then do a BFS to see what is their shortest distance
         // to Paul Erdos (Erdos, P.) if any (infinity in case of none found).
