@@ -165,6 +165,9 @@ vector<string> readNames() {
         res.push_back(name);
     }
     while('\n' != getchar());
+    // After the names have been read, lets read characters without storing
+    // them until reaching the end of the line, since all other characters are
+    // part of the paper's name, in which we aren't interested at all for this.
     return res;
 }
 
