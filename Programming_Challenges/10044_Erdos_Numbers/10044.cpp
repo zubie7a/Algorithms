@@ -63,7 +63,7 @@ int bfs(int start, int end) {
     while(q.size()) {
         pair<int, int> now = q.front();
         q.pop();
-        int    actual = now.first;
+        int actual = now.first;
         int weight = now.second;
         if(visited[actual]) {
         // This node has been previously reach, ignore it
