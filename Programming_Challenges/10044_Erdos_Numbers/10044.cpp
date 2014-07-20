@@ -41,11 +41,11 @@ set<string> authorsSet;
 // and give them an index for easy identification and graph traversal. Be care-
 // ful that maybe the program may be queried for an author that isn't in any
 // paper, therefore it doesn't have an index to search in the graph, so first
+// check in this set, and if it isn't here, skip doing the graph search.
 vector< vector<string> > allPapers;
 // A list of the lists of authors contained in each paper, this is like
 // a graph in string form, which will be converted into a graph in num-
 // erical form for easy and fast traversal.
-// check in this set, and if it isn't here, skip doing the graph search.
 
 
 string substring(string s, int l, int r) {
