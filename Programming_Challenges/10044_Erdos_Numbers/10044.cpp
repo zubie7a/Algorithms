@@ -159,6 +159,7 @@ vector<string> readNames() {
         if(name[name.length() - 1] == ':') {
         // If this is the last name down the road
             name = substring(name, 0, name.length() - 1);
+            // Remove the : symbol
             res.push_back(name);
             break;
         }
