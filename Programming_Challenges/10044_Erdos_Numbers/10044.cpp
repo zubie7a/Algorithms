@@ -47,7 +47,6 @@ vector< vector<string> > allPapers;
 // a graph in string form, which will be converted into a graph in num-
 // erical form for easy and fast traversal.
 
-
 string substring(string s, int l, int r) {
 // substring of a string s, from index l (inclusive) to index r (exclusive)
     string res = "";
