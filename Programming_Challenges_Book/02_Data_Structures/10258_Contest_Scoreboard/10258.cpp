@@ -95,6 +95,7 @@ void getTotalTimes() {
         finalRanking.push_back(c);
     }
 }
+
 bool sortByProblems(const Contestant &lhs, const Contestant &rhs) {
 // We want the people with most problems solved to be at the beginning of
 // the list, so reverse the comparisson operator, since the usual sort will
