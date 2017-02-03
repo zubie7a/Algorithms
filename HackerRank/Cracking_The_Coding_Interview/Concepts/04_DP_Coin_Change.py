@@ -18,7 +18,9 @@ def compute(index, n):
     # there was still money missing.
     if index >= len(coins):
         return 0
-    # If resu
+    # If result hasn't been computed before.
+    # The key to the previously computed result will be the
+    # same arguments of the function used to compute it!
     if not table.get((index, n)):
         table[(index, n)] = 0
         # For all unused coins
