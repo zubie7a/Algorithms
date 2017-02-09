@@ -1,9 +1,11 @@
 # https://www.hackerrank.com/challenges/ctci-contacts/forum
-# With Python2, 4 cases gave Segmentation Fault on judge even
-# though they worked perfectly on computer. With Python3, now
-# 3 of those 4 cases pass (12/13 total) but still one case
-# gives Runtime Error, I believe has to do with memory.
 class Trie(object):
+    # Optimization to save space, instead of having a
+    # dictionary for any amount of attributes, have the
+    # attributes fixed from start. It fixed memory
+    # problems for really big amount of instances!
+    # https://docs.python.org/2/reference/datamodel.html#slots
+    def __slots__ = ('children', 'count')
     def __init__(self):
         # The children of this node.
         self.children = {}
