@@ -5,7 +5,7 @@ class Trie(object):
     # attributes fixed from start. It fixed memory
     # problems for really big amount of instances!
     # https://docs.python.org/2/reference/datamodel.html#slots
-    def __slots__ = ('children', 'count')
+    __slots__ = ('children', 'count')
     def __init__(self):
         # The children of this node.
         self.children = {}
