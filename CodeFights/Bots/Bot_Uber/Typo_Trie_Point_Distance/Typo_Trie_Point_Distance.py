@@ -137,7 +137,7 @@ def closestLocation(address, objects, names):
     t = Trie()
     
     dists = odict()
-    # 1. Create an OrderedDictionary for addresses, storing them
+    # 2. Create an OrderedDictionary for addresses, storing them
     # as lowercase, but keeping the original, and also storing
     # their coordinates.
     for i in range(len(names)):
@@ -150,7 +150,7 @@ def closestLocation(address, objects, names):
     for name in dists.keys():
         t.add(name)
     
-    # 2. Search for address. This will be a query
+    # 3. Search for address. This will be a query
     # where either a single character can be replaced,
     # deleted or inserted only once. It will keep track
     # of a 'typo' flag to see if we have already used
