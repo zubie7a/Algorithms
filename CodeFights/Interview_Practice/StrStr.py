@@ -3,6 +3,7 @@
 # Find pattern in text, non-naive way or not using
 # built-in functions like t.find(p) or t.index(p)
 def strstr(t, p):
+    # Find using Knuth-Morris-Pratt (KMP) algorithm! :-)
     table = {}
     # For a substring of pattern p of length 1, the longest
     # prefix that is the same suffix that doesn't include
