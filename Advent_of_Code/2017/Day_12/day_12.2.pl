@@ -33,7 +33,7 @@ foreach my $program_pipes (@{ $programs }) {
 }
 
 # Find all programs reachable from every program, but skip loops
-# and already visited programs. If visited at least one at each
+# and already visited programs. If reached at least one from each
 # root, it means it wasn't visited before and its a new group.
 my $visited = {};
 my $groups = 0;
@@ -56,7 +56,7 @@ foreach my $root (keys %{ $graph }) {
         }
     }
     # If anything was reachable (also meaning it wasn't visited before)
-    # then it means that this current "root" is part of another group.
+    # then it means that this current "root" is part of a new group.
     $groups += 1 if $reachable;
 }
 
