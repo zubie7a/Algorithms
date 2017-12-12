@@ -52,4 +52,5 @@ while (scalar @{ $queue }) {
     }
 }
 
+# Result: 128.
 print "$reachable\n";
