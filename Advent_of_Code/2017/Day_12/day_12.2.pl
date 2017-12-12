@@ -60,4 +60,5 @@ foreach my $root (keys %{ $graph }) {
     $groups += 1 if $reachable;
 }
 
+# Result: 209.
 print "$groups\n";
