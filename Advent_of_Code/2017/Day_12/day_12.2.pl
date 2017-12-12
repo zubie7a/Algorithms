@@ -13,7 +13,6 @@ while (my $line = <$file_in>) {
 
 close($file_in);
 
-
 # Which program connects to which programs.
 my $graph = {};
 
@@ -41,6 +40,7 @@ my $groups = 0;
 
 foreach my $root (keys %{ $graph }) {
     my $reachable = 0;
+    # Initial state of queue has current root.
     my $queue = [$root];
     while (scalar @{ $queue }) {
         my $element = shift @{ $queue };
@@ -48,14 +48,15 @@ foreach my $root (keys %{ $graph }) {
         next if $visited->{$element};
         # Mark it as visited.
         $visited->{$element} = 1;
-        # Increase count of programs reachable from 0.
+        # Increase count of programs reachable from current root.
         $reachable += 1;
         # Put in the queue all neighbors.
         foreach my $target (@{ $graph->{$element} // [] }) {
             push @{ $queue }, $target;
         }
     }
-    
+    # If anything was reachable (also meaning it wasn't visited before)
+    # then it means that this current "root" is part of another group.
     $groups += 1 if $reachable;
 }
 

@@ -13,7 +13,6 @@ while (my $line = <$file_in>) {
 
 close($file_in);
 
-
 # Which program connects to which programs.
 my $graph = {};
 
@@ -33,10 +32,11 @@ foreach my $program_pipes (@{ $programs }) {
     }
 }
 
-
 # Find all programs reachable from 0, but skip loops.
 my $visited = {};
+# Amount of reachable nodes starting from 0 as root.
 my $reachable = 0;
+# Initial state of queue has 0 as root.
 my $queue = ["0"];
 while (scalar @{ $queue }) {
     my $element = shift @{ $queue };
