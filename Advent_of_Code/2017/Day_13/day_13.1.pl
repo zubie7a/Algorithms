@@ -21,7 +21,7 @@ my $layers = {};
 # The deepest layer.
 my $max_index = -1;
 foreach my $scanner (@{ $scanners }) {
-    my ($index, $depth) = split ":", $scanner;
+    my ($index, $depth) = split ": ", $scanner;
  
     my $layer = {};
     $layer->{scanner_pos} = 0;
@@ -85,6 +85,42 @@ for (0 .. $max_index) {
     # $line .= "\n";
     # print $line;
 
+}
+
+# Result: 2160.
+print "$severity\n";
+
+# This same previous code is USELESS for 13.2, as its always simulating
+# moving all the scanners, 13.2 result is in the millions and this code
+# was just trying thousands after 10 minutes... So did 13.2 from scratch
+# without simulating all of the steps but figuring out a formula.
+# Optimization based on improvement of 13.2.
+
+# Reset $severity to find it again with optimization.
+$severity = 0;
+$layers = {};
+foreach my $scanner (@{ $scanners }) {
+    my ($index, $depth) = split ": ", $scanner;
+    $layers->{$index} = $depth;
+}
+
+my $delay = 0;
+# Who knows, this may never stop...
+foreach my $layer_index (keys %{ $layers }) {
+    my $depth = $layers->{$layer_index};
+    # $limit is the amount of steps the scanner requires to go back
+    # to position 0. If a layer has depth 4, then the steps the
+    # scanner will take are:
+    #    [0, 1, 2, 3, 2, 1]
+    # So it takes 6 steps before resetting. The packet can only
+    # move in position 0 of layers, so use the formula to check
+    # what will be the position of the scanner when packet arrives
+    # to its layer.
+    my $limit = ($depth - 1) * 2;
+    # $delay + $layer_index is the amount of steps the packet
+    # has to take for reaching the layer.
+    my $scanner_pos = $layer_index % $limit;
+    $severity += $depth * $layer_index if $scanner_pos == 0;
 }
 
 # Result: 2160.
