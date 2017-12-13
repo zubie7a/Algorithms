@@ -23,10 +23,20 @@ my $delay = 0;
 # Who knows, this may never stop...
 while(1) {
     my $collisions = 0;
-    foreach my $scanner (keys %{ $layers }) {
-        my $depth = $layers->{$scanner};
+    foreach my $layer_index (keys %{ $layers }) {
+        my $depth = $layers->{$layer_index};
+        # $limit is the amount of steps the scanner requires to go back
+        # to position 0. If a layer has depth 4, then the steps the
+        # scanner will take are:
+        #    [0, 1, 2, 3, 2, 1]
+        # So it takes 6 steps before resetting. The packet can only
+        # move in position 0 of layers, so use the formula to check
+        # what will be the position of the scanner when packet arrives
+        # to its layer.
         my $limit = ($depth - 1) * 2;
-        my $scanner_pos = ($delay + $scanner) % $limit;
+        # $delay + $layer_index is the amount of steps the packet
+        # has to take for reaching the layer.
+        my $scanner_pos = ($delay + $layer_index) % $limit;
         $collisions += 1 if $scanner_pos == 0;
         last if $scanner_pos == 0;
     }
