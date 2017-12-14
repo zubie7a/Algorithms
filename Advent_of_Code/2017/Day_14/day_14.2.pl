@@ -46,7 +46,7 @@ for (0 .. 127) {
     # iterations, don't reset!
     for (1 .. 64) {
         foreach my $length (@{ $seed }) {
-            # In-Place version of reverse swap:
+            # In-Place version of reverse sublist swap wrapping around:
             foreach my $delta (0 .. $length / 2 - 1) {
                 my $values_length = scalar @{ $values };
                 my $base = $pos + $values_length;
@@ -74,7 +74,6 @@ for (0 .. 127) {
         $dense_hash .= $bin;
     }
 
-    # Count the ones in the row, this are the enabled squares in the grid.
     my $chars = [split '', $dense_hash];
     $grid->[$index] = $chars;
 }
