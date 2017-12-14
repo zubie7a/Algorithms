@@ -78,7 +78,7 @@ for (0 .. 127) {
     $grid->[$index] = $chars;
 }
 
-sub BFS {
+sub DFS {
     my ($pos_r, $pos_c) = @_;
     # Don't count this node if already visited.
     return 0 if $visited->[$pos_r]->[$pos_c];
@@ -102,7 +102,7 @@ sub BFS {
         my $cur_char = $grid->[$pos_r]->[$pos_c];
         my $new_char = $grid->[$new_r]->[$new_c];
         if ($new_char eq $cur_char) {
-            $neighbor_count += BFS($new_r, $new_c);
+            $neighbor_count += DFS($new_r, $new_c);
         }
     }
     # The end of the recursion call will contain the number of blocks
@@ -121,7 +121,7 @@ for (0 .. 127) {
         next if $grid->[$row]->[$col] eq "0";
         # If the result is non zero it means that an independent
         # region was computed.
-        $region_count += 1 if BFS($row, $col);
+        $region_count += 1 if DFS($row, $col);
     }
 }
 
