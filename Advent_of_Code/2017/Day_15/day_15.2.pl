@@ -27,7 +27,7 @@ my $judge_count = 0;
 my ($mask_a, $mask_b) = (((1 << 16) - 1), ((1 << 16) - 1));
 
 # FIVE MILLION ITERATIONS.
-for (0 .. 5000000) {
+for (1 .. 5000000) {
     # Keep multiplying by the factor but also apply mod to keep
     # it from overflowing. But now also keep multiplying each
     # generator individually until the result is divisible by

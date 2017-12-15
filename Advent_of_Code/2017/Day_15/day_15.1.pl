@@ -27,7 +27,7 @@ my $judge_count = 0;
 my ($mask_a, $mask_b) = (((1 << 16) - 1), ((1 << 16) - 1));
 
 # FORTY MILLION ITERATIONS.
-for (0 .. 40000000) {
+for (1 .. 40000000) {
     # Keep multiplying by the factor but also apply mod to keep
     # it from overflowing.
     $gen_a = ($gen_a * $x_a) % $mod;
