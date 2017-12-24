@@ -24,7 +24,7 @@ my $judge_count = 0;
 # This will help extract the last 16 bits of the generator
 # values with bitwise &, then they can be compared directly
 # as integer values. 
-my ($mask_a, $mask_b) = (((1 << 16) - 1), ((1 << 16) - 1));
+my $mask = (1 << 16) - 1;
 
 # FIVE MILLION ITERATIONS.
 for (1 .. 5000000) {
@@ -41,8 +41,8 @@ for (1 .. 5000000) {
     } while ($gen_b % 8);
 
     # Compare if the last 16 bits are the same.
-    my $bits_a = $gen_a & $mask_a;
-    my $bits_b = $gen_b & $mask_b;
+    my $bits_a = $gen_a & $mask;
+    my $bits_b = $gen_b & $mask;
 
     # DEBUG: printf("%.16b\n%.16b\n\n", $bits_a, $bits_b);
     $judge_count += ($bits_a == $bits_b);
