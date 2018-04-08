@@ -1,7 +1,7 @@
 ## Santiago Zubieta
 #### 2011 - 2018
 
-'Oh, pilot of the storm who leaves no trace, like sorts inside a dream, leave the path that led me to that place, yellow desert stream'  
+*'Oh, pilot of the storm who leaves no trace, like sorts inside a dream, leave the path that led me to that place, yellow desert stream'*  
 -Led Zeppelin, Kashmir
 
 ## Algorithms in C++, Go, Perl, and Python
