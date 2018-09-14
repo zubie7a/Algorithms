@@ -1,6 +1,9 @@
-# https://codefights.com/arcade/intro/level-3/JKKuHJknZNj4YGL32
+# https://app.codesignal.com/arcade/intro/level-3/JKKuHJknZNj4YGL32
 from collections import Counter
+
 def commonCharacterCount(s1, s2):
+    # When counter is initialized with a String, since its a
+    # sequence it will store counts for each of its characters.
     c1 = Counter(s1)
     c2 = Counter(s2)
     common = 0
@@ -11,4 +14,5 @@ def commonCharacterCount(s1, s2):
     for item in c2.items():
         key = item[0]
         common += min(c2[key], c1[key])
+
     return common

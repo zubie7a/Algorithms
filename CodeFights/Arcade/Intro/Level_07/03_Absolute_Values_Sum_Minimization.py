@@ -1,4 +1,4 @@
-# https://codefights.com/arcade/intro/level-7/ZFnQkq9RmMiyE6qtq
+# https://app.codesignal.com/arcade/intro/level-7/ZFnQkq9RmMiyE6qtq
 def absoluteValuesSumMinimization(A):
     # Given a sorted array of integers A, find such an integer x
     # that the value of:

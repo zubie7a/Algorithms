@@ -1,10 +1,10 @@
-# https://codefights.com/arcade/intro/level-5/5xPitc3yT3dqS7XkP
+# https://app.codesignal.com/arcade/intro/level-5/5xPitc3yT3dqS7XkP
 def boxBlur(image):
     res = []
     '''
     To blur an image, take 3x3 squares, and average
     all their values into a single square. The resulting
-    image will have less squares on eacah dimension because
+    image will have less squares on each dimension because
     of the two vertical/horizontal squares lost when reducing
     3x3 grids to 1x1 grids.
     
@@ -24,15 +24,24 @@ def boxBlur(image):
          [22,24,31,39,45], 
          [37,34,36,47,59]]
     '''
+    # Get the dimensions of the image.
     n, m = len(image), len(image[0])
-    for i in range(n-3+1):
+    # Loop rows with inclusive limit of n - 3, not iterating
+    # n - 2 and n - 1 because those will be lost while blurring.
+    for i in range(n - 3 + 1):
+        # Clean row to append to output image.
         row = []
-        for j in range(m-3+1):
+        # Same boundary for the columns.
+        for j in range(m - 3 + 1):
             average = 0
+            # Iterate in a mini 3x3 grid at the current position
+            # to find the average value.
             for x in range(3):
                 for y in range(3):
-                    average += image[i+x][j+y]
+                    average += image[i + x][j + y]
+            # Round the value down since pixels are ints.
             average //= 9
             row.append(average)
         res.append(row)
+
     return res
