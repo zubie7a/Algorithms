@@ -1,4 +1,6 @@
 # https://app.codesignal.com/arcade/intro/level-10/HJ2thsvjL25iCvvdm
+import re
+
 def isMAC48Address(input_string):
     # Split into groups by dashes.
     groups = input_string.split("-")
@@ -19,4 +21,9 @@ def isMAC48Address(input_string):
         return False
 
     # All groups must fulfill the is_hex condition.
-    return all([is_hex(group) for group in groups])
+    # return all([is_hex(group) for group in groups])
+
+    # Or alternatively, do it with a regex!
+    mac48 = r'^([0-9A-F]{2}-){5}([0-9A-F]{2})$'
+    # return re.match(mac48, input_string) is not None
+    return bool(re.fullmatch(mac48, input_string))
