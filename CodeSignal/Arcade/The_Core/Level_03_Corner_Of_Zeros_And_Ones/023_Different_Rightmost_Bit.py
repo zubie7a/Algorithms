@@ -1,15 +1,15 @@
 # https://app.codesignal.com/arcade/code-arcade/corner-of-0s-and-1s/whz5JzszYTdXW6aNA/
 def differentRightmostBit(n, m):
-	# Whats the value of the different rightmost bit?
-	# Regular string operations:
-	# 1. Do n XOR m, so the resulting value will have ones only in the positions
-	# where the bits are mutually exclusive.
-	# 2. Convert to a binary string and invert it so we can count from left, which
-	# in binary we do that anyway because we count from right but starting with the
-	# index 0 at the right, so if we invert the string and keep counting 0 from the
-	# left is the same.
-	# 3. Find the location of the first one (first different bit), and return 2 to
-	# the power of that index.
+    # Whats the value of the different rightmost bit?
+    # Regular string operations:
+    # 1. Do n XOR m, so the resulting value will have ones only in the positions
+    # where the bits are mutually exclusive.
+    # 2. Convert to a binary string and invert it so we can count from left, which
+    # in binary we do that anyway because we count from right but starting with the
+    # index 0 at the right, so if we invert the string and keep counting 0 from the
+    # left is the same.
+    # 3. Find the location of the first one (first different bit), and return 2 to
+    # the power of that index.
     return 2 ** bin(n ^ m)[2:][::-1].find("1")
     # Now interesting bitwise operations:
     # 1. Do the mutually exclusive bits to turn on bits at differing positions.

@@ -2,12 +2,12 @@
 import re
 
 def swapAdjacentBits(n):
-	# With regexes and string operators:
-	# 1. Convert string to binary, then fill up to 32 bit digits with 0s.
-	# 2. Split by pairs of elements.
-	# 3. Flip each pair of elements.
-	# 4. Join that together in a string.
-	# 5. Convert back to int.
+    # With regexes and string operators:
+    # 1. Convert string to binary, then fill up to 32 bit digits with 0s.
+    # 2. Split by pairs of elements.
+    # 3. Flip each pair of elements.
+    # 4. Join that together in a string.
+    # 5. Convert back to int.
     return int("".join(map(lambda x: x[::-1], re.findall(r'.{2}', bin(n)[2:].zfill(32)))), 2)
     # Now this is even more interesting and bit wise:
     # 1. 5 in binary is 0101, so 5 in hex 0x5 is 0x0101.
