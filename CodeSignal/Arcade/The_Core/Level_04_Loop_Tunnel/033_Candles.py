@@ -12,7 +12,7 @@ def candles(candles_number, make_new):
         new_candles = (candles_number//make_new)
         # Remains that could not be used
         remains += (candles_number % make_new)
-        
+
         # Candles for next iteration
         candles_number = new_candles
         # See if the spare remains now can make candles.

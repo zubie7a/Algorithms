@@ -20,7 +20,7 @@ def countBlackCells(n, m):
         px, py = (i - 1, ((i - 1) * slope))
         # New point.
         nx, ny = (i, (i * slope))
-    
+
         # The vertical cells contained between each one unit step in horizontal
         # direction are the floor of previous vertical value and ceil of new one.
         dy = (ceil(ny) - floor(py))

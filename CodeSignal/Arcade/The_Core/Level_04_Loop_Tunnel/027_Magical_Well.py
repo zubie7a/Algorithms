@@ -8,7 +8,7 @@ def magicalWell(a, b, n):
     # 2. (a + 2) * (b + 2)   n - 1
     # 3. (a + n) * (b + n)   n 
     # return sum([ (a + i) * (b + i) for i in range(n)])
-    
+
     # 1. a*b + 0*a + 0*b + 0*0
     # 2. a*b + 1*a + 1*b + 1*1
     # 3. a*b + 2*a + 2*b + 2*2
