@@ -27,7 +27,7 @@ def weakNumbers(n):
                 more_divisors += 1
         # Store the weakness of this value.
         weaknesses.append(more_divisors)
-    
+
     # Return the highest weakness value and how many numbers have it too.
     weakest = max(weaknesses)
     times = weaknesses.count(weakest)
