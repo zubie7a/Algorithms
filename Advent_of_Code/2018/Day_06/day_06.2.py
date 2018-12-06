@@ -32,22 +32,22 @@ distances = [ [ 0 for _ in range(w) ] for _ in range(h) ]
 
 # For each cell, just add the distance to each of the coordinates.
 for j in range(h):
-	for i in range(w):
-		for k in range(len(coords)):
-			cx, cy = coords[k]
-			dx = abs(i - cx)
-			dy = abs(j - cy)
-			m_dist = dx + dy
-			distances[j][i] += m_dist
+    for i in range(w):
+        for k in range(len(coords)):
+            cx, cy = coords[k]
+            dx = abs(i - cx)
+            dy = abs(j - cy)
+            m_dist = dx + dy
+            distances[j][i] += m_dist
 
 area = 0
 # The area that is less than 10000 is bound to be a single one
 # because the further you go from the center the higher the distance
 # to all coordinates go, so it forms sort of a circular shape.
 for j in range(h):
-	for i in range(w):
-		if distances[j][i] < limit:
-			area += 1
+    for i in range(w):
+        if distances[j][i] < limit:
+            area += 1
 
 # Result: 45602.
 print(area)
