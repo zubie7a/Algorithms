@@ -49,5 +49,5 @@ for j in range(h):
 		if distances[j][i] < limit:
 			area += 1
 
-# Result: 45602
+# Result: 45602.
 print(area)
