@@ -2,8 +2,8 @@
 import re
 
 def messageFromBinaryCode(code):
-	# Take a message from a binary string and convert it into a human
-	# readable ascii string!
+    # Take a message from a binary string and convert it into a human
+    # readable ascii string!
     octet = r'[01]{8}'
     result = ""
     for match in re.finditer(octet, code):
