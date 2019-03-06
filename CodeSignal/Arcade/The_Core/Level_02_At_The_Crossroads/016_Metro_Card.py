@@ -9,5 +9,5 @@ def metroCard(last_number_of_days):
         30: [31],
         31: [28, 30, 31]
     }
-    
+
     return days_next[last_number_of_days]
