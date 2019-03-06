@@ -19,7 +19,7 @@ def swapAdjacentBits(n):
     # in odd positions of mask, making them "on" at odd positions if the bits
     # at even positions of n were 1, but turning off always the bits at odd
     # positions of n.
-    #  
+    #
     # n =    01101100000(1) rightshift
     # 0x5... 10101010101
     #        -----------
@@ -43,7 +43,7 @@ def swapAdjacentBits(n):
     # another in which even positions have the values from odd positions of
     # n and odd positions are cleared.
     #
-    # b1 =   --00101000000 
+    # b1 =   --00101000000
     # b2 =   0100010000010
     #        -------------
     #        0100111000010

@@ -1,4 +1,4 @@
-# https://app.codesignal.com/arcade/code-arcade/list-forest-edge/GeqSK26bvdrarkGH9 
+# https://app.codesignal.com/arcade/code-arcade/list-forest-edge/GeqSK26bvdrarkGH9
 def concatenateArrays(a, b):
     # a += b
     # a.extend(b) : this takes all elements of b and puts them in a. If

@@ -14,13 +14,13 @@ def rectangleRotation(a, b):
     # |o o o o o o o o o o|
     # | x x x x x x x x x |
     # |o_o_o_o_o_o_o_o_o_o|
-    # 
-    # From the center (*) vertically, the units are sqrt(2), 
+    #
+    # From the center (*) vertically, the units are sqrt(2),
     # the side of one square, the same happens horizontally.
     # You can find the areas of two rectangles, one that has
     # points in even rows (o) a bit shifted from the points of
     # one in the odd rows (x).
-    # 
+    #
     rows = (a // math.sqrt(2)) + 1
     cols = (b // math.sqrt(2)) + 1
     # The odds positions and the evens positions areas.

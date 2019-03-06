@@ -4,7 +4,7 @@ def seatsInTheater(n_cols, n_rows, col, row):
     # is at the left of your row. If you stand up you'll block the viewing
     # of your row and all other rows until the exit. How much people's view
     # will be blocked once you start leaving?
-    # 
+    #
     # Need information about theater layout:
     #     * Columns count from left to right.
     #     * Rows count from bottom to top.

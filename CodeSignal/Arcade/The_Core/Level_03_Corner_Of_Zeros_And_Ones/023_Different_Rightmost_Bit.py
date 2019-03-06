@@ -13,7 +13,7 @@ def differentRightmostBit(n, m):
     return 2 ** bin(n ^ m)[2:][::-1].find("1")
     # Now interesting bitwise operations:
     # 1. Do the mutually exclusive bits to turn on bits at differing positions.
-    #  
+    #
     #  30 = 0011110
     #  78 = 1001110
     #  ------------
@@ -25,13 +25,13 @@ def differentRightmostBit(n, m):
     # from that will cause the rightmost different bit to be turned off and all
     # the following equal ones to be turned on.
     #
-    #  (":" is the split point of rightmost different) 
+    #  (":" is the split point of rightmost different)
     #  10:10000 - 1 = 10:01111
     #
     # 3. Now negate that value. The different bit will again be on, everything
     # to its right will be off, but now everything to the left of the different
     # bit will be the opposite of the mutual exclusive.
-    # 
+    #
     #   ~1001111 = 0110000
     #
     # 4. The result of `logical and` with the original mutual exclusive will be
@@ -44,5 +44,5 @@ def differentRightmostBit(n, m):
     #    0110000
     #    -------
     #    0010000 = 16
-    #    
+    #
     return (n ^ m) & ~((n ^ m) - 1)

@@ -18,5 +18,5 @@ def increaseNumberRoundness(n):
     # return new_n.find("0") != -1
 
     # Check if value has some non-zero digit, with any amount of 0s to its
-    # right, and then any amount of digits to its left but at least one 0. 
+    # right, and then any amount of digits to its left but at least one 0.
     return len(re.findall(r'^[0-9]*0[0-9]*[^0][0]*', str(n)))
