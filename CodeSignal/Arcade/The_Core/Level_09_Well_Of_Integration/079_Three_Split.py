@@ -31,4 +31,3 @@ def threeSplit(numbers):
          start_count += 1
 
    return result
-    
