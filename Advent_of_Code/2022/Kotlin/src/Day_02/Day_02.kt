@@ -77,7 +77,7 @@ fun main() {
             val row = game.split(" ")
             val opponent = mapOfChoices[row[0]]
 
-            val you = when (§row[1]) {
+            val you = when (row[1]) {
                 // You need to lose, pick a move weak to opponent
                 "X" -> mapOfAdvantages[opponent]
                 // You need to win, pick a move opponent is weak to
