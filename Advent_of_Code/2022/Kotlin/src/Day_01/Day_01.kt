@@ -37,11 +37,11 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
+    val testInput = readInput("Day_01/test_input")
     println(part1(testInput))
     println(part2(testInput))
 
-    val input = readInput("Day01")
+    val input = readInput("Day_01/input")
     println(part1(input))
     println(part2(input))
 }
