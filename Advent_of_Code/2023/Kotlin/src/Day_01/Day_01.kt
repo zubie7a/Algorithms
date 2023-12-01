@@ -105,6 +105,29 @@ fun main() {
         return parseContents(transformedInput).sum()
     }
 
+
+    fun part2simpler(input: List<String>): Int {
+        // I saw on the internet a solution that allows using substitutions
+        // while accounting for the overlapping cases. It's so simple!
+        val wordDigits = mapOf(
+            "one" to "o1e", "two" to "t2o", "three" to "th3ee",
+            "four" to "fo4r", "five" to "f5e", "six" to "s6x",
+            "seven" to "se7en", "eight" to "ei8th", "nine" to "ni9e"
+        )
+
+        val transformedInput = input.map { row ->
+            var mutableRow = row
+            wordDigits.entries.map { entry ->
+                mutableRow = mutableRow.replace(entry.key, entry.value)
+            }
+            mutableRow
+        }
+
+        // After the input has been manipulated to replace the word-digits, use
+        // the same code from the earlier problem to obtain the result.
+        return parseContents(transformedInput).sum()
+    }
+
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day_01/test_input")
     part1(testInput).println()
@@ -113,4 +136,5 @@ fun main() {
     val input = readInput("Day_01/input")
     part1(input).println()
     part2(input).println()
+    part2simpler(input).println()
 }
