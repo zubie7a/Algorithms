@@ -12,7 +12,7 @@ fun main() {
 
             // Get the first digit and last digit and convert to int.
             // It could be the case that first and last are the same!
-            (row.first() + "" + row.last()).toInt()
+            "${row.first()}${row.last()}".toInt()
         }
 
         return numbers
