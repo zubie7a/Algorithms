@@ -9,7 +9,7 @@ fun main() {
                 // ["3 blue, 4 red", " 1 red, 2 green, 6 blue", " 2 green"]
                 .split(";")
                 .map { round ->
-                    // [[3 blue, 4 red], [1 red, 2 green, 6 blue], [2 green]]
+                    // [["3 blue", "4 red"], ["1 red", "2 green", "6 blue"], ["2 green"]]
                     round.split(",")
                         .map { pick ->
                             pick.trim()
@@ -68,7 +68,7 @@ fun main() {
         val powers = input.map {
             // Keep track of the minimum amount of cubes required to make a game valid.
             // For this we need to know the maximum amount of cubes of each color that
-            // appears in the round of a game.
+            // appears in each round of a game.
             val minimumCubes = mutableMapOf(
                 "red" to 0,
                 "green" to 0,
